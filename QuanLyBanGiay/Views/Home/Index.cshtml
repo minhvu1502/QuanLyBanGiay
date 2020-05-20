@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model List<QuanLyBanGiay.Models.tSanPham>
+<!-- Content -->
+<div id="content">
+    <!-- Tabs -->
+    <div class="tabs">
+        <ul>
+            <li><a href="#" class="active"><span>Sản Phẩm Nổi Bật</span></a></li>
+        </ul>
+    </div>
+    <!-- Tabs -->
+    <!-- Container -->
+    <div id="container">
+        <div class="tabbed">
+            <!-- First Tab Content -->
+            <div class="tab-content" style="display:block;">
+                <div class="items">
+                    <div class="cl">&nbsp;</div>
+                    <ul>
+                        @*@Html.Action("GetProductBySex","Product", new {@Sex = "Nam"})*@
+                        @{
+                            foreach (var item in Model)
+                            {
+                                <li>
+                                    <div class="image"> <a href="@Url.Action("ProductDetail","Product",new  {@MaSp = item.MaSP})"><img src="@Url.Content("~/Content/css/imagesProduct/"+item.Anh)" alt="" /></a> </div>
+                                    <p>
+                                        Item Number: <span>@item.MaSP</span><br />
+                                        Size List : <span>8/8.5/9.5/10/11</span><br />
+                                        Brand Name: <a href="#">@item.TenSP</a>
+                                    </p>
+                                    <p class="price">Wholesale Price: <strong>@item.Gia</strong></p>
+                                </li>
+                            }
+                        }
+                    </ul>
+                    <div class="cl">&nbsp;</div>
+                </div>
+            </div>
+            <!-- End First Tab Content -->
+        </div>
+    </div>
+    <!-- End Container -->
+</div>
+<!-- End Content -->
