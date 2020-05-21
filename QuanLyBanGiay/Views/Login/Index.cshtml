@@ -127,20 +127,23 @@
             <button>login</button>
             <p class="message">Not registered? <a href="@Url.Action("CreateAcount")">Create an account</a></p>
         </form>*@
-        @using (@Html.BeginForm("Index", "Login", FormMethod.Post, htmlAttributes: new {@class = "login-form"}))
+        @using (@Html.BeginForm("Index", "Login", FormMethod.Post, htmlAttributes: new { @class = "login-form" }))
         {
+
             @Html.ValidationSummary(false, "", "error")
-            @Html.TextBoxFor(model=>model.username)
-          @Html.PasswordFor(model=>model.password)
+            <label for="username">Tài Khoản:</label><br />
+            @Html.TextBoxFor(model => model.username)
+            <label for="password">Mật Khẩu:</label><br />
+            @Html.PasswordFor(model => model.password)
             <button type="submit">Login</button>
             <p class="message">Not registered? <a href="@Url.Action("CreateAcount")">Create an account</a></p>
         }
         @*<form class="register-form">
-                <input type="text" placeholder="name" />
-                <input type="password" placeholder="password" />
-                <input type="text" placeholder="email address" />
-                <button>create</button>
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
-            </form>*@
+            <input type="text" placeholder="name" />
+            <input type="password" placeholder="password" />
+            <input type="text" placeholder="email address" />
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>*@
     </div>
 </div>

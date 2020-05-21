@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using QuanLyBanGiay.Common;
 using QuanLyBanGiay.Models;
 
 namespace QuanLyBanGiay.Controllers
@@ -29,6 +30,11 @@ namespace QuanLyBanGiay.Controllers
                     db.tTaiKhoan.SingleOrDefault(x => x.TenTK == model.username && x.Password == model.password);
                 if (result != null)
                 {
+                    CustomerModel customer = new CustomerModel()
+                    {
+                        TenTK = result.TenTK
+                    };
+                    Session.Add(SessionContants.LOGIN, customer);
                     return RedirectToAction("Index", "Home");
                 }
                 else

@@ -147,19 +147,25 @@
         <fieldset>
             <legend>Register Form</legend>
             <div>
-                @Html.TextBoxFor(model=>model.TenTK)
+                <label for="TenTK">Tên Tài Khoản: </label>
+                <br/>
+                @Html.TextBoxFor(model => model.TenTK)
             </div>
             <div>
-                @Html.PasswordFor(model=>model.Password)
+                <label for="Password">Mật Khẩu: </label><br />
+                @Html.PasswordFor(model => model.Password)
             </div>
             <div>
-                @Html.TextBoxFor(model=>model.TenKH)
+                <label for="TenKH">Họ Tên: </label><br />
+                @Html.TextBoxFor(model => model.TenKH)
             </div>
             <div>
-                @Html.TextBoxFor(model=>model.Email)
+                <label for="Email">Email: </label><br />
+                @Html.TextBoxFor(model => model.Email)
             </div>            
             <div>
-                @Html.TextBoxFor(model=>model.NgaySinh)
+                <label for="NgaySinh">NgaySinh</label><br />
+                @Html.TextBoxFor(model => model.NgaySinh)
             </div>
             <div>
                 <div class="small">this textarea is just for test so you can see the placeholder working on textarea as well</div>
